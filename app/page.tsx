@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button"; 
 import { Check } from "lucide-react"; 
 import Image from "next/image"; 
+import { CarouselSize } from "./carousel";
 
+import { AnalyticsCard } from "./Card";
+import { Cards } from "./Cards";
 
 const features = [ 
   "No credit card", 
@@ -59,7 +62,46 @@ export default function Home() {
           className="w-full h-auto mt-10"
         />
 
-      
+      <CarouselSize/>
+      <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-16 w-full max-w-6xl mx-auto px-4">
+  
+        {/* Left Column */}
+        <div className="md:w-1/2 text-left">
+          <h2 className="text-sm text-yellow-700 font-semibold">BENEFITS</h2>
+          <h1 className="text-3xl font-bold text-black dark:text-white mt-2">
+            What Do We Bring to You?
+          </h1>
+          <p className="text-sx text-zinc-700 dark:text-zinc-300 mt-4">
+           All the innovative solutions you need to grow your business are here! We add value to your business with our features that simplify your workflow, increase efficiency and strengthen your decisions.
+          </p>
+        </div>
+        {/*right colum */}
+        <div className=" grid grid-cols-1  gap-2"> 
+          <AnalyticsCard number="01" title="AI-Powered Automation" description="Save time and increase your efficiency by automating your routine business processes." />
+          <AnalyticsCard number="02" title="Real Time Data Analysis" description="We help you make more informed and strategic decisions by instantly analyzing your data." />
+          <AnalyticsCard number="03" title="Personalized Experience" description="It offers flexible solutions with its adaptable structure according to the specific needs of your business." />
+          <AnalyticsCard number="04" title="Scalable Structure" description="Move forward into the future with confidence, with an infrastructure that can expand as your business grows." />
+        </div>
+      </div>
+       <div className="text-lg items-center text-yellow-800 mt-10 font-semibold">
+         FEATURES
+       </div>
+       <div className="text-4xl items-center text-zinc-700 mt-4 font-bold">
+          <h1>Everything You Need to Succeed</h1>
+          <p className="max-w-xl text-xl text-zinc-600 dark:text-zinc-400 font-semibold mt-3">
+            Our comprehensive platform provides all the tools you need to optimize your website, boost performance, and enhance user experience.
+          </p>
+       </div>
+        <div className="grid grid-cols-3  gap-2 px-6"> 
+          <Cards  title="AI-Powered Automation" description="Our intelligent algorithms automatically enhance your website's performance, speed, and user experience." />
+          <Cards  title="Real Time Data Analysis" description="Monitor your website's performance metrics and optimization improvements with comprehensive dashboards" />
+          <Cards  title="SEO Enhancement" description="Boost your search engine rankings with AI-driven content and metadata optimization suggestions." />
+          <Cards  title="Advanced Security" description="Protect your website with intelligent threat detection and automated security enhancements." />
+          <Cards  title="Smart Integrations" description="Connect seamlessly with your existing tools and platforms through our extensive API ecosystem."/>
+          <Cards  title="24/7 AI Monitoring" description= "Our AI constantly monitors your website, making real-time adjustments to maintain peak performance." />
+        </div>
+     
+        
     </div>
   );
 }
