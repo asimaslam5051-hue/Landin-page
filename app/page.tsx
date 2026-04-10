@@ -3,8 +3,10 @@ import { Check } from "lucide-react";
 import Image from "next/image"; 
 import { CarouselSize } from "./carousel";
 
-import { AnalyticsCard } from "./Card";
+import { AnalyticsCard } from "./AnalyticsCard";
 import { Cards } from "./Cards";
+import { AnalyticsCards } from "./AnalyticsCards";
+import { TestimonialCarousel } from "./TestimonialCarousel";
 
 const features = [ 
   "No credit card", 
@@ -77,31 +79,82 @@ export default function Home() {
         </div>
         {/*right colum */}
         <div className=" grid grid-cols-1  gap-2"> 
-          <AnalyticsCard number="01" title="AI-Powered Automation" description="Save time and increase your efficiency by automating your routine business processes." />
-          <AnalyticsCard number="02" title="Real Time Data Analysis" description="We help you make more informed and strategic decisions by instantly analyzing your data." />
-          <AnalyticsCard number="03" title="Personalized Experience" description="It offers flexible solutions with its adaptable structure according to the specific needs of your business." />
-          <AnalyticsCard number="04" title="Scalable Structure" description="Move forward into the future with confidence, with an infrastructure that can expand as your business grows." />
+          <AnalyticsCards number="01" title="AI-Powered Automation" description="Save time and increase your efficiency by automating your routine business processes." />
+          <AnalyticsCards number="02" title="Real Time Data Analysis" description="We help you make more informed and strategic decisions by instantly analyzing your data." />
+          <AnalyticsCards number="03" title="Personalized Experience" description="It offers flexible solutions with its adaptable structure according to the specific needs of your business." />
+          <AnalyticsCards number="04" title="Scalable Structure" description="Move forward into the future with confidence, with an infrastructure that can expand as your business grows." />
         </div>
       </div>
        <div className="text-lg items-center text-yellow-800 mt-10 font-semibold">
          FEATURES
        </div>
-       <div className="text-4xl items-center text-zinc-700 mt-4 font-bold">
+       <div className="text-4xl text-center text-zinc-700 dark:text-zinc-100 mt-4 font-bold">
           <h1>Everything You Need to Succeed</h1>
-          <p className="max-w-xl text-xl text-zinc-600 dark:text-zinc-400 font-semibold mt-3">
+          <p className="max-w-2xl text-lg text-zinc-600 dark:text-zinc-400   mt-3">
             Our comprehensive platform provides all the tools you need to optimize your website, boost performance, and enhance user experience.
           </p>
        </div>
-        <div className="grid grid-cols-3  gap-2 px-6"> 
-          <Cards  title="AI-Powered Automation" description="Our intelligent algorithms automatically enhance your website's performance, speed, and user experience." />
+        <div className="grid grid-cols sm: grid-cols-1 lg:grid-cols-3  gap-4 px-6 mt-10"> 
+          <Cards  title="AI-Powered Automation"  description="Our intelligent algorithms automatically enhance your website's performance, speed, and user experience." />
           <Cards  title="Real Time Data Analysis" description="Monitor your website's performance metrics and optimization improvements with comprehensive dashboards" />
           <Cards  title="SEO Enhancement" description="Boost your search engine rankings with AI-driven content and metadata optimization suggestions." />
-          <Cards  title="Advanced Security" description="Protect your website with intelligent threat detection and automated security enhancements." />
-          <Cards  title="Smart Integrations" description="Connect seamlessly with your existing tools and platforms through our extensive API ecosystem."/>
-          <Cards  title="24/7 AI Monitoring" description= "Our AI constantly monitors your website, making real-time adjustments to maintain peak performance." />
+          <Cards  title="Advanced Security"   description="Protect your website with intelligent threat detection and automated security enhancements." />
+          <Cards  title="Smart Integrations"  description="Connect seamlessly with your existing tools and platforms through our extensive API ecosystem."/>
+          <Cards  title="24/7 AI Monitoring"   description= "Our AI constantly monitors your website, making real-time adjustments to maintain peak performance." />
         </div>
-     
+        <div className="text-lg items-center text-yellow-800 mt-10 font-semibold">
+         SERVICES
+        </div>
+        <div className="text-4xl text-center  text-zinc-700 dark:text-zinc-100 mt-4 font-bold">
+          <h1>Grow Your Business</h1>
+          <p className="max-w-2xl text-lg text-zinc-600 dark:text-zinc-400 font-semibold mt-3">
+            From marketing and sales to operations and strategy, we have the expertise to help you achieve your goals.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-4  mt-10 ">
+          <AnalyticsCard
+              title="Consultation Services"
+              description="Expert guidance tailored to identify opportunities and strategize effectively."
+          />
+          <AnalyticsCard
+            title="Custom Domain Integration" 
+            description="Seamless integration of your unique domain for a professional online presence" 
+          />
+          <AnalyticsCard 
+            title="Social Media Integrations" 
+            description="Connect with popular platforms to enhance your online engagement and reach. " 
+          />
+          <AnalyticsCard
+            title="Email Marketing Integrations" 
+            description="Effortlessly connect email marketing tools to streamline your campaigns." 
+            pro
+          />
+
+          <AnalyticsCard
+            title="SEO Optimization" 
+            description="Improve your search engine visibility with tailored optimization strategies." 
+            pro
+          />
+
+          <AnalyticsCard
+            title="Ongoing Support" 
+            description="24/7 customer support to ensure smooth operations and address any issues." 
+            pro
+          />
+        </div>
+         <div className="text-lg items-center text-yellow-800 mt-10 font-semibold">
+         Testimonials
+        </div>
+        <div className="text-3xl text-center  text-black dark:text-white mt-4 font-bold">
+          <h1>Loved by Teams Worldwide</h1>
+          <p className="max-w-2xl  text-lg text-zinc-700 dark:text-white font-semibold mt-3">
+            Don't just take our word for it. See what our customers have to say about their experience.
+          </p>
+         
+        </div>
+        <TestimonialCarousel/>
         
     </div>
+      
   );
 }

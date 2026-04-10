@@ -9,8 +9,7 @@ type Props = {
 
 export function Cards({ title,  description }: Props) {
   return (
-    <Card className="w-full max-w-xl flex flex-col gap-6 rounded-xl border py-12 bg-background lg:sticky lg:top-24 group transition-all duration-300 hover:shadow-lg">
-      
+       <Card className="w-full max-w-xl flex flex-col gap-6 rounded-xl border bg-background   transition-all duration-300 hover:shadow-lg">
       <CardHeader className="flex justify-between items-start px-6">
         
        
@@ -31,6 +30,7 @@ export function Cards({ title,  description }: Props) {
       <CardContent className="px-6 text-muted-foreground leading-relaxed">
         {description}
       </CardContent>
+      
 
     </Card>
   );
