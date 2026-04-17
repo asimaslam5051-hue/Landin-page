@@ -217,7 +217,7 @@ export default function Home() {
         <FAQ/>
         <div className="text-4xl text-center text-black dark:text-white mt-32 font-bold">
           <h1>Join Our Daily
-            <span className="bg-gradient-to-br from-secondary to-secondary-foreground bg-clip-text text-transparent pl-2">
+            <span className="text-yellow-700  pl-2">
                    Newsletter
             </span></h1>
           <p className="max-w-xl  text-lg text-zinc-600 dark:text-white mt-3">
