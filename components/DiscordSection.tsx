@@ -14,7 +14,7 @@ export default function DiscordSection() {
       <div className="container px-2">
         <div className="mx-auto max-w-7xl">
 
-          <Card className="rounded-xl py-6 mt-28 shadow-sm border border-border/50">
+          <Card className="rounded-lg py-6 mt-28 shadow-sm border border-border/50">
 
             <CardHeader className="px-6">
               <CardTitle className="flex flex-col items-center text-3xl font-bold md:text-4xl text-center">

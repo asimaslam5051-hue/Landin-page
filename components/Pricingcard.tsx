@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
@@ -7,7 +8,6 @@ type Props = {
 };
 
 export default function Pricingcard({ billing }: Props) {
-
   const plans = [
     {
       name: "Starter",
@@ -52,59 +52,75 @@ export default function Pricingcard({ billing }: Props) {
   ];
 
   return (
-    <div className="grid gap-6 lg:grid-cols-3 lg:gap-8 px-28 mt-12">
-      {plans.map((plan, i) => {
-        const price =
-          billing === "monthly" ? plan.monthly : plan.yearly;
+    <section className="px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-        return (
-          <div
-            key={i}
-            className={`flex flex-col rounded-xl border py-6 h-full ${
-              plan.popular ? "border-2  relative" : ""
-            }`}
-          >
-            {plan.popular && (
-              <span className="absolute top-0 right-0 bg-yellow-700 text-white text-xs px-3 py-1 rounded-bl-lg rounded-tr-xl">
-                Most Popular
-              </span>
-            )}
+        {plans.map((plan, i) => {
+          const price = billing === "monthly" ? plan.monthly : plan.yearly;
 
-            <div className="px-6">
-              <h3 className="font-semibold">{plan.name}</h3>
-            </div>
+          return (
+            <div
+              key={i}
+              className={`relative flex flex-col rounded-2xl border bg-background p-5 sm:p-6 h-full shadow-sm transition hover:shadow-lg ${
+                plan.popular ? "border-2 border-yellow-700" : ""
+              }`}
+            >
+              {/* Badge */}
+              {plan.popular && (
+                <span className="absolute top-3 right-3 bg-yellow-700 text-white text-xs sm:text-sm px-3 py-1 rounded-xl">
+                  Most Popular
+                </span>
+              )}
 
-            <div className="px-6 flex flex-col h-full">
-              <div className="flex items-baseline text-4xl font-bold">
-                ${price}
-                <span className="ml-1 text-sm text-muted-foreground lowercase">
+              {/* Title */}
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold">
+                {plan.name}
+              </h3>
+
+              {/* Price */}
+              <div className="flex items-end mt-4">
+                <span className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                  ${price}
+                </span>
+
+                <span className="ml-2 text-xs sm:text-sm text-muted-foreground mb-1">
                   /{billing === "monthly" ? "month" : "year"}
                 </span>
               </div>
 
-              <p className="text-muted-foreground  mt-2">
+              {/* Description */}
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground mt-3 leading-6">
                 {plan.desc}
               </p>
 
-              <ul className="my-6 flex-grow space-y-3">
+              {/* Features */}
+              <ul className="my-6 flex flex-col gap-3">
                 {plan.features.map((item, i) => (
-                  <li key={i} className="flex items-center">
-                    <Check className="mr-2 size-4 text-secondary" />
-                    {item}
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-xs sm:text-sm md:text-base"
+                  >
+                    <Check className="mt-1 size-4 text-yellow-700 shrink-0" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <Button 
+              {/* Button */}
+              <Button
                 variant={plan.popular ? "default" : "outline"}
-                className={plan.popular ? "bg-yellow-700" : ""}
-                >
+                className={`w-full py-5 sm:py-6 text-sm sm:text-base transition ${
+                  plan.popular
+                    ? "bg-yellow-700 hover:bg-yellow-600"
+                    : ""
+                }`}
+              >
                 {plan.popular ? "Start Free Trial" : "Contact Sales"}
               </Button>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }

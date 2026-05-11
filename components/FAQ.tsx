@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { useEffect, useState } from "react"
 
 const items = [
   {
@@ -44,33 +45,42 @@ const items = [
     content:
       "We accept major credit cards, PayPal, and bank transfers for easy and convenient payment options.",
   },
-  
-
-
 ]
 
 export default function FAQ() {
-  return (
-    <Accordion
-      type="multiple"
-      defaultValue={["notifications"]}
-      className="w-full max-w-2xl mx-auto space-y-4 mt-12"
-    >
-      {items.map((item) => (
-        <AccordionItem
-          key={item.value}
-          value={item.value}
-          className="border rounded-lg px-4"
-        >
-          <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline">
-            {item.trigger}
-          </AccordionTrigger>
+  const [visible, setVisible] = useState(false)
 
-          <AccordionContent className="text-muted-foreground pt-2 pb-4">
-            {item.content}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
+  useEffect(() => {
+    setVisible(true)
+  }, [])
+
+  return (
+    <section className="px-4 sm:px-6 lg:px-8">
+      <Accordion
+        type="multiple"
+        defaultValue={["notifications"]}
+        className={`w-full max-w-3xl mx-auto space-y-4 mt-10 sm:mt-12 transition-all duration-500 ${
+          visible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
+        }`}
+      >
+        {items.map((item) => (
+          <AccordionItem
+            key={item.value}
+            value={item.value}
+            className="border rounded-2xl px-4 sm:px-6 py-1 bg-background/50"
+          >
+            <AccordionTrigger className="text-left text-sm sm:text-base md:text-lg font-semibold leading-6 sm:leading-7 hover:no-underline py-4">
+              {item.trigger}
+            </AccordionTrigger>
+
+            <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-6 pb-4">
+              {item.content}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </section>
   )
 }
